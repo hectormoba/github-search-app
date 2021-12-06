@@ -1,0 +1,7 @@
+/dist
+/node_modules
+
+.fig
+.sketch
+.DS_Store
+.vscode
