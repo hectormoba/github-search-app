@@ -1,4 +1,8 @@
 import React from 'react';
+import locationIcon from '../assets/icon-location.svg';
+import urlIcon from '../assets/icon-website.svg'
+import twitterIcon from '../assets/icon-twitter.svg'
+import companyIcon from '../assets/icon-company.svg'
 
 function InfoItem(props){
   const {text, icon} = props
@@ -6,14 +10,13 @@ function InfoItem(props){
 }
 
 function UserInfo(props){
-  const { company, location, siteUrl, twitter} = props
+  
 
   return (
     <ul>
-      <InfoItem text={location} />
-      <InfoItem text={siteUrl} />
-      <InfoItem text={twitter} />
-      <InfoItem text={company} />
+      {props.userProps.map((element, index) => {
+        return <InfoItem text={element} key={index} />
+      })}
     </ul>
   )
 }

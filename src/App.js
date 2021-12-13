@@ -5,11 +5,6 @@ import Profile from './components/Profile';
 import UserStats from './components/UserStats';
 import UserInfo from './components/UserInfo';
 
-// import LocationIcon from './assets/icon-location.svg';
-// import UrlIcon from './assets/icon-website.svg'
-// import TwitterIcon from './assets/icon-twitter.svg'
-// import CompanyIcon from './assets/icon-company.svg'
-
 function App(){
   const [error, setError] = useState(null);
   const [user, setUser] = useState([]);
@@ -24,6 +19,7 @@ function App(){
   },[])
 
   const {avatar_url, name, html_url, created_at, bio, public_repos, followers, following, company, twitter, location, blog} = user
+  const userProps = [company, twitter, location, blog]
   return(
     <div>
       <Header />
@@ -41,10 +37,7 @@ function App(){
         following={following}
       />
       <UserInfo
-        company={company}
-        location={location}
-        siteUrl={blog}
-        twitter={twitter}
+        userProps={userProps}
       />
     </div>
   )
