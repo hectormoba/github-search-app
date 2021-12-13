@@ -15,11 +15,20 @@ module.exports = {
             presets: ['@babel/preset-env', "@babel/preset-react"]
           }
         }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
       }
     ]
   },
   resolve:{
-    extensions: ['*', '.js', '.jsx',]
+    extensions: ['*','.js', '.jsx'],
+    // alias: {
+    //   '@': path.resolve(__dirname, 'src'),
+    //   '@assets': path.resolve(__dirname, 'src/assets'),
+    //   '@components': path.resolve(__dirname, 'src/components')
+    // }
   },
   output: {
     path: path.resolve(__dirname, './dist'),
