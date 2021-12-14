@@ -10,12 +10,30 @@ function InfoItem(props){
 }
 
 function UserInfo(props){
-  
+  const {company, twitter, location, urlSite} = props
+  const propsIterator = [
+    {
+      icon: locationIcon,
+      text: location
+    },
+    {
+      icon: urlIcon,
+      text: urlSite
+    },
+    {
+      icon: twitterIcon,
+      text: twitter
+    },
+    {
+      icon: companyIcon,
+      text: company
+    }
+  ]
 
   return (
     <ul>
-      {props.userProps.map((element, index) => {
-        return <InfoItem text={element} key={index} />
+      {propsIterator.map((element, index) => {
+        return <InfoItem icon={element.icon} text={element.text} key={index} />
       })}
     </ul>
   )

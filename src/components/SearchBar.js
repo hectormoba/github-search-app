@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import searchIcon from '../assets/icon-search.svg'
 
-function SearchBar(){
+function SearchBar(props){
+  const [input, setInput] = useState("");
+  const {changeUser, fetchError} = props
+  const handleChange = event => setInput(event.target.value)
+
+  const handleSubmit = () => {
+    changeUser(input)
+  }
+
   let alertText;
-  if(false){
-    alertText = <span>No results</span>
+  if(fetchError){
+    alertText = <span style={{color: "red"}}>No results</span>
   } else {
     alertText = null;
   }
   return(
     <div>
-      <img src="#" alt="magnifier icon indicating a search bar"/>
-      <input type="text" />
+      <img src={searchIcon} alt="magnifier icon indicating a search bar"/>
+      <input type="text" value={input} onChange={handleChange}/>
       {alertText}
-      <button>Search</button>
+      <button onClick={handleSubmit}>Search</button>
     </div>
   )
 }

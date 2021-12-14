@@ -7,23 +7,46 @@ import UserInfo from './components/UserInfo';
 
 function App(){
   const [error, setError] = useState(null);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState("octocat");
+  const [response, setResponse] = useState([])
+  const [themeColor, setThemeColor] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/octocat")
+    let myToken = "####"
+    fetch(`https://api.github.com/users/${user}`, {
+      headers: {
+        'Authorization': `token ${myToken}`
+      }
+    })
       .then(res => res.json())
       .then(
-        (result) => {setUser(result)},
-        (error) => setError(error)
+        (result) => {
+          if(result.message == "Not Found") {
+            setError(true)
+          } else{
+            setError(null)
+          }
+          setResponse(result)
+        },
+        (err) => setError(err)
       )
-  },[])
+  },[user])
 
-  const {avatar_url, name, html_url, created_at, bio, public_repos, followers, following, company, twitter, location, blog} = user
-  const userProps = [company, twitter, location, blog]
+
+
+  const {avatar_url, name, html_url, created_at, bio, public_repos, followers, following, company, twitter, location, blog} = response
+
+  const changeUser = (string) => {
+    setUser(string) 
+  }
+
   return(
     <div>
       <Header />
-      <SearchBar />
+      <SearchBar 
+        changeUser={changeUser}  
+        fetchError={error}
+      />
       <Profile
         avatar={avatar_url}
         name={name}
@@ -37,7 +60,10 @@ function App(){
         following={following}
       />
       <UserInfo
-        userProps={userProps}
+        company={company}
+        twitter={twitter}
+        location={location}
+        urlSite={blog}
       />
     </div>
   )
