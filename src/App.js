@@ -12,27 +12,28 @@ function App(){
   const [themeColor, setThemeColor] = useState(null);
 
   useEffect(() => {
-    let myToken = "####"
+    let myToken = "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"
     fetch(`https://api.github.com/users/${user}`, {
       headers: {
         'Authorization': `token ${myToken}`
       }
     })
-      .then(res => res.json())
+      .then((res) => {
+        if(res.ok) {
+          setError(null)
+          return res.json()
+        }
+        throw res
+      })
       .then(
         (result) => {
-          if(result.message == "Not Found") {
-            setError(true)
-          } else{
-            setError(null)
-          }
           setResponse(result)
         },
-        (err) => setError(err)
+        (err) => {
+          setError(err)
+        }
       )
   },[user])
-
-
 
   const {avatar_url, name, html_url, created_at, bio, public_repos, followers, following, company, twitter, location, blog} = response
 
