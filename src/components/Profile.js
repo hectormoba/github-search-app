@@ -3,6 +3,8 @@ import React from 'react';
 function Profile(props){
   const {avatar, name, url, joined, bio} = props
 
+  console.log(url)
+
   const nameChange = () => {
     let splitUrl = url.split("/")
     return splitUrl[splitUrl.length - 1]

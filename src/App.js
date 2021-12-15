@@ -35,7 +35,7 @@ function App(){
       )
   },[user])
 
-  const {avatar_url, name, html_url, created_at, bio, public_repos, followers, following, company, twitter, location, blog} = response
+  const {avatar_url, name, html_url, created_at, bio, public_repos, followers, following, company, twitter_username, location, blog} = response
 
   const changeUser = (string) => {
     setUser(string) 
@@ -62,7 +62,7 @@ function App(){
       />
       <UserInfo
         company={company}
-        twitter={twitter}
+        twitter={twitter_username}
         location={location}
         urlSite={blog}
       />
