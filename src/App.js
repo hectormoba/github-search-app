@@ -12,7 +12,7 @@ function App(){
   const [themeColor, setThemeColor] = useState(null);
 
   useEffect(() => {
-    let myToken = "#####"
+    let myToken = process.env.GHB_TOKEN
     fetch(`https://api.github.com/users/${user}`, {
       headers: {
         'Authorization': `token ${myToken}`
