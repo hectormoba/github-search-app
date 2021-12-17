@@ -10,7 +10,7 @@ function InfoItem(props){
   return(
     <li>
       <img src={icon} alt="icon"/>
-      {text === null ? (<b>Not available</b>): text}
+      {(text === null || text === "" )? (<b>Not available</b>): text}
     </li>
   )
 }
