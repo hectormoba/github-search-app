@@ -17,7 +17,7 @@ function Profile(props){
   return(
     <div>
       <div>
-        <img src={avatar} alt="Profile picture"/>
+        <img className="profile__image" src={avatar} alt="Profile picture"/>
         <div>
           <h3>{name === null ? nameChange() : name }</h3>
           <a src={url}>@{url ? nameChange() : ''}</a>

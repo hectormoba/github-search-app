@@ -1,0 +1,92 @@
+//------ VARIABLES
+//--- Colors
+$action-color: #0079ff;
+$background-color: #f6f8ff;
+$background-contrast-color: #fefefe;
+$main-text-color: #607c9a;
+$highlight-text-color: #2b3442;
+$disabled-color: #4b6a9b;
+
+
+$dm-background-color: #1a1d2f;
+$dm-background-contrast-color: #1e2a47;
+$dm-highlight-text-color: #ffffff;
+
+//--- Fonts
+@font-face {
+  font-family: "Space Mono";
+  src: url("../assets/SpaceMono-Bold.ttf"), url("../assets/SpaceMono-Regular.ttf");
+}
+
+$main-font: "Space Mono", "Roboto", monospace;
+$h1-size: 26px;
+$h1-line-height: 38px;
+$h2-size: 22px;
+$h2-line-height: 33px;
+$h3-size: 16px;
+$h3-line-height: 24px;
+$h4-size: 13px;
+$h4-line-height: 20px;
+$body-text-size: 15px;
+$body-line-height: 25px;
+
+//---Size and spacing
+$margin-padding-min: 1.5rem;
+$margin-padding-medium: 3rem;
+$margin-padding-max: 6rem;
+
+//------RESETS
+
+*, ::after, ::before, :hover{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 62.5%;
+  font-family: $main-font;
+}
+
+h1,h2,h3,h4{
+  margin: 0
+}
+
+ul{
+  margin: 0;
+  padding: 0
+}
+
+li{
+  list-style-type: none;
+}
+
+//------MIXINS 
+
+@mixin font-sizing($font-size, $line-height) {
+  @if $font-size >= 22px {
+    font-weight: 600;
+    letter-spacing: 1px;
+  } @else {
+    font-weight: 400;
+  }
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+//------ UTILITY CLASSES
+
+.flex {
+  display: flex;
+}
+
+.width100{
+  width: 100%
+}
+
+.title{
+  @include font-sizing($h1-size,$h1-line-height); 
+}
+
+.text{
+  @include font-sizing($body-text-size, $body-line-height)
+}

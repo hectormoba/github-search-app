@@ -18,12 +18,16 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg)$/i,
         use: [
           {
             loader: 'file-loader',
           },
         ],
+      },
+      {
+        test: /.scss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
   },

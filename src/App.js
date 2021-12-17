@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar';
 import Profile from './components/Profile';
 import UserStats from './components/UserStats';
 import UserInfo from './components/UserInfo';
+import "./styles/main.scss"
 
 function App(){
   const [error, setError] = useState(null);
@@ -42,30 +43,32 @@ function App(){
   }
 
   return(
-    <div>
-      <Header />
-      <SearchBar 
-        changeUser={changeUser}  
-        fetchError={error}
-      />
-      <Profile
-        avatar={avatar_url}
-        name={name}
-        url={html_url}
-        joined={created_at}
-        bio={bio}
-      />
-      <UserStats 
-        repos={public_repos}
-        followers={followers}
-        following={following}
-      />
-      <UserInfo
-        company={company}
-        twitter={twitter_username}
-        location={location}
-        urlSite={blog}
-      />
+    <div className="outter__wrapper flex">
+      <div className="main__wrapper">
+        <Header />
+        <SearchBar 
+          changeUser={changeUser}  
+          fetchError={error}
+        />
+        <Profile
+          avatar={avatar_url}
+          name={name}
+          url={html_url}
+          joined={created_at}
+          bio={bio}
+        />
+        <UserStats 
+          repos={public_repos}
+          followers={followers}
+          following={following}
+        />
+        <UserInfo
+          company={company}
+          twitter={twitter_username}
+          location={location}
+          urlSite={blog}
+        />
+      </div>
     </div>
   )
 }

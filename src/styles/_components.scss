@@ -1,0 +1,17 @@
+.switcher__text{
+  @include font-sizing($h4-size, $h4-line-height);
+  margin: 0;
+  //adapting letter centering
+  padding-top: 2px;
+  letter-spacing: 1px;
+}
+
+.switcher__image{
+ height: 50%;
+}
+
+.profile__image{
+  max-width: 80%;
+}
+
+

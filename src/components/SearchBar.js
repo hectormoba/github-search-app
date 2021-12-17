@@ -17,9 +17,9 @@ function SearchBar(props){
     alertText = null;
   }
   return(
-    <div>
+    <div className="searchbar__wrapper width100 flex">
       <img src={searchIcon} alt="magnifier icon indicating a search bar"/>
-      <input type="text" value={input} onChange={handleChange}/>
+      <input className="searchbar__input" type="text" value={input} onChange={handleChange}/>
       {alertText}
       <button onClick={handleSubmit}>Search</button>
     </div>

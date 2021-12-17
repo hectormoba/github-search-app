@@ -1,0 +1,43 @@
+%component-style{
+  background-color: $background-contrast-color;
+  border-radius: 10px;
+}
+
+.outter__wrapper {
+  width: 100vw;
+  justify-content: center;
+  background-color: $background-color;
+}
+
+.main__wrapper {
+  flex-basis: 350px;
+}
+
+.header {
+  padding: $margin-padding-min 0;
+  justify-content: space-between;
+}
+
+.switcher__wrapper{
+  min-width: 80px;
+  justify-content: space-between;
+  column-gap: calc($margin-padding-min / 2);
+}
+
+.searchbar__wrapper {
+  @extend %component-style;
+  min-height: 60px;
+  padding: calc($margin-padding-min / 2);
+  justify-content: space-between;
+}
+
+.searchbar__input {
+  border: 1px solid transparent;
+  flex-grow: 0.5;
+  &:focus-visible{
+    outline: none;
+  }
+}
+
+
+
