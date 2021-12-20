@@ -12,13 +12,17 @@
 
 .searchbar__input {
   @include font-sizing($body-text-size, $body-line-height);
-  border: 1px solid transparent;
   flex-grow: 0.5;
+  border: 1px solid transparent;
+  background-color: var(--background-contrast-color);
+  font-family: $main-font;
+  color: var(--main-text-color);
   &:focus-visible{
     outline: none;
   }
   &::placeholder{
-    @include font-sizing($body-text-size, $body-line-height)
+    @include font-sizing($body-text-size, $body-line-height);
+    font-family: $main-font;
   }
 }
 
@@ -49,7 +53,7 @@
   border-radius:$border-radius;
   justify-content: space-evenly;
   text-align: center;
-  background-color: $background-color;
+  background-color: var(--background-color);
 }
 
 .stats__wrapper .text{

@@ -1,43 +1,37 @@
-//------ VARIABLES
-//--- Colors
-$action-color: #0079ff;
-$background-color: #f6f8ff;
-$background-contrast-color: #fefefe;
-$main-text-color: #607c9a;
-$highlight-text-color: #2b3442;
-$disabled-color: #4b6a9b;
+@use "./variables";
 
+//------MIXINS 
 
-$dm-background-color: #1a1d2f;
-$dm-background-contrast-color: #1e2a47;
-$dm-highlight-text-color: #ffffff;
-
-//--- Fonts
-@font-face {
-  font-family: "Space Mono";
-  src: url("../assets/SpaceMono-Regular.ttf") format("truetype");
+@mixin font-sizing($font-size, $line-height) {
+  @if $font-size >= 22px {
+    font-weight: 600;
+    letter-spacing: .5px;
+  } @else {
+    font-weight: 400;
+  }
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
-$main-font: "Space Mono", "Roboto", monospace;
-$h1-size: 26px;
-$h1-line-height: 38px;
-$h2-size: 22px;
-$h2-line-height: 33px;
-$h3-size: 16px;
-$h3-line-height: 24px;
-$h4-size: 13px;
-$h4-line-height: 20px;
-$body-text-size: 15px;
-$body-line-height: 25px;
-
-//---Size and spacing
-$margin-padding-min: 1.5rem;
-$margin-padding-medium: 3rem;
-$margin-padding-max: 6rem;
-$border-radius: 10px;
-$box-shadow: 0px 16px 30px -10px rgba(75, 106, 155, 0.2);
-
 //------RESETS
+
+:root{
+  --action-color: #{variables.$action-color};
+  --background-color: #{variables.$background-color};
+  --background-contrast-color: #{variables.$background-contrast-color};
+  --main-text-color: #{variables.$main-text-color};
+  --highlight-text-color: #{variables.$highlight-text-color};
+  --disabled-color: #{variables.$disabled-color};
+
+  @media (prefers-color-scheme: dark){
+    --action-color: #{variables.$action-color};
+    --background-color: #{variables.$dm-background-color};
+    --background-contrast-color: #{variables.$dm-background-contrast-color};
+    --main-text-color: #{variables.$dm-main-text-color};
+    --highlight-text-color: #{variables.$dm-main-text-color};
+    --disabled-color: #{variables.$disabled-color};
+  }
+}
 
 *, ::after, ::before, :hover{
   box-sizing: border-box;
@@ -78,19 +72,6 @@ button {
   border: 1px solid transparent;
 }
 
-//------MIXINS 
-
-@mixin font-sizing($font-size, $line-height) {
-  @if $font-size >= 22px {
-    font-weight: 600;
-    letter-spacing: .5px;
-  } @else {
-    font-weight: 400;
-  }
-  font-size: $font-size;
-  line-height: $line-height;
-}
-
 //------ UTILITY CLASSES
 
 .flex {
@@ -102,16 +83,18 @@ button {
 }
 
 .title{
-  @include font-sizing($h1-size,$h1-line-height); 
+  @include font-sizing($h1-size,$h1-line-height);
+  color: var(--highlight-text-color);
 }
 
 .subtitle{
   @include font-sizing($h2-size, $h2-line-height);
+  color: var(--highlight-text-color);
 }
 
 .text{
   @include font-sizing($body-text-size, $body-line-height);
-  color: $main-text-color;
+  color: var(--main-text-color);
 }
 
 .error{
@@ -125,4 +108,8 @@ button {
   border-radius: $border-radius; 
   background-color: $action-color;
   color: $background-contrast-color;
+}
+
+.disabled {
+  opacity: 0.6;
 }

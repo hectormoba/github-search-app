@@ -8,10 +8,18 @@ function InfoItem(props){
   const {text, icon} = props
 
   return(
-    <li className="user-info__list-item flex">
-      <img className="user-info__image" src={icon} alt="icon"/>
-      <p className="text">{(text === null || text === "" )? "Not available" : text}</p>
-    </li>
+    (text === null || text === "" ) ? (
+      <li className="user-info__list-item flex disabled">
+        <img className="user-info__image" src={icon} alt="icon"/>
+        <p className="text disabled">Not available</p>
+      </li>
+    ) :
+    (
+      <li className="user-info__list-item flex">
+        <img className="user-info__image" src={icon} alt="icon"/>
+        <p className="text">{text}</p>
+      </li>
+    )
   )
 }
 

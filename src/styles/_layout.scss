@@ -1,14 +1,14 @@
 %component-style{
   margin-bottom: $margin-padding-min;
   border-radius: $border-radius;
-  background-color: $background-contrast-color;
+  background-color: var(--background-contrast-color);
   box-shadow: $box-shadow;
 }
 
 .outter__wrapper {
   width: 100vw;
   justify-content: center;
-  background-color: $background-color;
+  background-color: var(--background-color);
 }
 
 .main__wrapper {
@@ -36,4 +36,5 @@
 .section__wrapper{
   @extend %component-style;
   padding: $margin-padding-min;
+  margin-bottom: $margin-padding-max;
 }
