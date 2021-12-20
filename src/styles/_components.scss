@@ -10,8 +10,66 @@
  height: 50%;
 }
 
+.searchbar__input {
+  @include font-sizing($body-text-size, $body-line-height);
+  border: 1px solid transparent;
+  flex-grow: 0.5;
+  &:focus-visible{
+    outline: none;
+  }
+  &::placeholder{
+    @include font-sizing($body-text-size, $body-line-height)
+  }
+}
+
+.searchbar__magnifier {
+  flex-basis: 32px;
+  object-fit: contain; 
+}
+
 .profile__image{
-  max-width: 80%;
+  min-width: 70px;
+  max-width: 30%;
+  border-radius: 50%;
+}
+
+.profile__anchor{
+  @include font-sizing($h3-size, $h3-line-height);
+  text-decoration: none;
+  color: $action-color
+}
+
+.profile-inner__wrapper{
+  padding-left: $margin-padding-min;
+}
+
+.stats__wrapper{
+  margin: $margin-padding-min 0;
+  padding: calc($margin-padding-min /2) 0;
+  border-radius:$border-radius;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: $background-color;
+}
+
+.stats__wrapper .text{
+  margin: 0;
+}
+
+.user-info__wrapper{
+  padding: $margin-padding-min 0;
+}
+
+.user-info__list-item{
+  margin-bottom: calc($margin-padding-min / 2);
+}
+
+.user-info__image{
+  margin-right: 10px; 
+}
+
+.user-info__wrapper .text{
+  margin: 0
 }
 
 

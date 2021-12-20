@@ -3,18 +3,18 @@ import React from 'react'
 function UserStats(props){
   const {repos, followers, following} = props
   return(
-    <div>
-      <div>
-        <p>Repos</p>
-        <h3>{repos}</h3>
+    <div className="stats__wrapper flex">
+      <div className="stats-element__wrapper">
+        <p className="text">Repos</p>
+        <h3 className="subtitle">{repos}</h3>
       </div>
       <div>
-        <p>Followers</p>
-        <h3>{followers}</h3>
+        <p className="text">Followers</p>
+        <h3 className="subtitle">{followers}</h3>
       </div>
       <div>
-        <p>Following</p>
-        <h3>{following}</h3>
+        <p className="text">Following</p>
+        <h3 className="subtitle">{following}</h3>
       </div>
     </div>
   )

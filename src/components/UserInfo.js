@@ -8,9 +8,9 @@ function InfoItem(props){
   const {text, icon} = props
 
   return(
-    <li>
-      <img src={icon} alt="icon"/>
-      {(text === null || text === "" )? (<b>Not available</b>): text}
+    <li className="user-info__list-item flex">
+      <img className="user-info__image" src={icon} alt="icon"/>
+      <p className="text">{(text === null || text === "" )? "Not available" : text}</p>
     </li>
   )
 }
@@ -25,7 +25,7 @@ function UserInfo(props){
   }
 
   return (
-    <ul>
+    <ul className="user-info__wrapper">
       <InfoItem icon={locationIcon} text={location} />
       <InfoItem icon={urlIcon} text={urlSite} />
       <InfoItem icon={twitterIcon} text={twitter} />
