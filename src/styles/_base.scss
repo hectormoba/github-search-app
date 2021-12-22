@@ -113,3 +113,12 @@ button {
 .disabled {
   opacity: 0.6;
 }
+
+.dark-theme{
+  --action-color: #{variables.$action-color};
+  --background-color: #{variables.$dm-background-color};
+  --background-contrast-color: #{variables.$dm-background-contrast-color};
+  --main-text-color: #{variables.$dm-main-text-color};
+  --highlight-text-color: #{variables.$dm-main-text-color};
+  --disabled-color: #{variables.$disabled-color};
+}

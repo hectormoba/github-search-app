@@ -1,6 +1,6 @@
 import React from 'react';
 import moonIcon from '../assets/icon-moon.svg'
-import sunIcon from '../assets/icon-moon.svg'
+import sunIcon from '../assets/icon-sun.svg'
 
 const colorTheme = {
   light: {
@@ -14,13 +14,19 @@ const colorTheme = {
 }
 
 function Header(props){
+  const {themeColor} = props
+
+  const handleClick = () => {
+    props.changeTheme()
+  }
+
   return(
     <header className="header flex">
       <h2 className="title">devfinder</h2>
-      <div className="switcher__wrapper flex">
-        <p className="switcher__text">{colorTheme.light.name}</p>
-        <img className="switcher__image" src={colorTheme.light.icon} alt="Theme icon"/>
-      </div>
+      <button onClick={handleClick} className="switcher__button text flex">
+        {themeColor === "dark" ? colorTheme.light.name : colorTheme.dark.name}
+        <img className="switcher__image" src={themeColor === "dark" ? colorTheme.light.icon : colorTheme.dark.icon} alt="Theme icon"/>
+      </button>
     </header>
   )
 }

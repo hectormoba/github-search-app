@@ -7,10 +7,11 @@ import UserInfo from './components/UserInfo';
 import "./styles/main.scss"
 
 function App(){
+  let theme = window.matchMedia("(prefers-color-scheme:dark)");
   const [error, setError] = useState(null);
   const [user, setUser] = useState("octocat");
   const [response, setResponse] = useState([])
-  const [themeColor, setThemeColor] = useState(null);
+  const [themeColor, setThemeColor] = useState(theme);
 
   useEffect(() => {
     let myToken = process.env.GHB_TOKEN
@@ -36,18 +37,38 @@ function App(){
       )
   },[user])
 
+  useEffect(()=> {
+    let div = document.getElementById('themeContainer')
+    if(themeColor === "dark"){
+      div.classList.add("dark-theme")
+    } else{
+      div.classList.remove("dark-theme")
+    }
+  },[themeColor])
+
   const {avatar_url, name, html_url, created_at, bio, public_repos, followers, following, company, twitter_username, location, blog} = response
 
   const changeUser = (string) => {
     setUser(string) 
   }
 
+  const changeTheme = () => {
+    if(themeColor != "dark"){
+      setThemeColor("dark");
+    } else{
+      setThemeColor("light")
+    }
+  }
+
   return(
-    <div className="outter__wrapper flex">
+    <div id="themeContainer" className="outter__wrapper flex">
       <div className="main__wrapper">
-        <Header />
+        <Header
+          changeTheme={changeTheme}
+          themeColor={themeColor}
+        />
         <SearchBar 
-          changeUser={changeUser}  
+          changeUser={changeUser}
           fetchError={error}
         />
         <div className="section__wrapper">

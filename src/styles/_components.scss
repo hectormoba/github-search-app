@@ -1,10 +1,15 @@
-.switcher__text{
-  @include font-sizing($h4-size, $h4-line-height);
-  margin: 0;
+.switcher__button{
+  min-width: 80px;
+  padding: 0;
+  justify-content: space-between;
+  column-gap: calc($margin-padding-min / 2);
+  background-color: var(--background-color);
   //adapting letter centering
   padding-top: 2px;
   letter-spacing: 1px;
 }
+
+ 
 
 .switcher__image{
  height: 50%;
