@@ -5,7 +5,7 @@ import sunIcon from '../assets/icon-sun.svg'
 const colorTheme = {
   light: {
     name: "LIGHT",
-    icon: sunIcon
+    icon: sunIcon,
   },
   dark: {
     name: "DARK",

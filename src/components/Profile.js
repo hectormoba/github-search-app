@@ -16,15 +16,16 @@ function Profile(props){
 
   return(
     <div className="profile__wrapper">
-      <div className="profile-elements__wrapper flex">
+      <div className="profile-elements__wrapper grid">
         <img className="profile__image" src={avatar} alt="Profile picture"/>
-        <div className="profile-inner__wrapper">
+        <div className="profile-inner__wrapper grid">
           <h3 className="subtitle">{name === null ? nameChange() : name }</h3>
           <a className="profile__anchor" target="_blank" href={url}>@{url ? nameChange() : ''}</a>
           <p className="text">Joined {joined ? dateChange() : ''}</p>
         </div>
       </div>
-        <p className="text">{bio === null ? "This profile has no bio" : bio}</p>
+      <div className="grid__wrapper grid"></div>
+        <p className="text--bio">{bio === null ? "This profile has no bio" : bio}</p>
     </div>
   )
 }

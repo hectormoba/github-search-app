@@ -28,17 +28,19 @@ function UserInfo(props){
 
   const urlChange = () => {
     let companyName = company.slice(1)
-    return <a src={"https://github.com/" + companyName}>{companyName}</a>
+    return <a className="text" href={"https://github.com/" + companyName}>{companyName}</a>
     
   }
 
   return (
-    <ul className="user-info__wrapper">
-      <InfoItem icon={locationIcon} text={location} />
-      <InfoItem icon={urlIcon} text={urlSite} />
-      <InfoItem icon={twitterIcon} text={twitter} />
-      <InfoItem icon={companyIcon} text={typeof company === "string" ? urlChange() : company} />
-    </ul>
+    <div className="grid__wrapper grid">
+      <ul className="user-info__wrapper">
+        <InfoItem icon={locationIcon} text={location} />
+        <InfoItem icon={urlIcon} text={urlSite} />
+        <InfoItem icon={twitterIcon} text={twitter} />
+        <InfoItem icon={companyIcon} text={typeof company === "string" ? urlChange() : company} />
+      </ul>
+    </div>
   )
 }
 

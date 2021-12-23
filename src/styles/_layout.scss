@@ -10,13 +10,22 @@
   padding: 0 $margin-padding-min;
   justify-content: center;
   background-color: var(--background-color);
-
+  @media (min-width: $tablet-breakpoint){
+    padding: 0 $margin-padding-medium;
+  }
+  @media (min-width: $desktop-breakpoint){
+    padding: 0;
+  }
 }
 
 .main__wrapper {
   flex-basis: 350px;
   flex-shrink: 0;
   flex-grow: 1;
+  @media (min-width: $desktop-breakpoint){
+    flex-basis: $max-width-element-desktop;
+    flex-grow: 0;
+  }
 }
 
 .header {
@@ -24,6 +33,33 @@
   justify-content: space-between;
 }
 
+.profile-elements__wrapper{
+  grid-template-columns: 100px 1fr;
+  @media (min-width: $tablet-breakpoint){
+    grid-template-columns: 150px 1fr
+  }
+}
+.profile-inner__wrapper{
+  grid-template-rows: 33% 25% 20%;
+  .text{
+    margin: 0;
+  }
+  @media (min-width: $tablet-breakpoint){
+    grid-template-rows: 25% 20% 20% 10%
+  }
+  @media (min-width: $desktop-breakpoint){
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20% 20%;
+    .profile__anchor{
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .text{
+      grid-column: 2;
+      align-self: end;
+    }
+  }
+}
 
 .searchbar__wrapper {
   @extend %component-style;
@@ -35,5 +71,10 @@
 .section__wrapper{
   @extend %component-style;
   padding: $margin-padding-min;
-  margin-bottom: $margin-padding-max;
+}
+
+.grid__wrapper{
+  @media (min-width: $tablet-breakpoint) {
+    grid-template-columns: 150px 1fr;
+  }
 }

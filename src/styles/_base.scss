@@ -78,6 +78,10 @@ button {
   display: flex;
 }
 
+.grid {
+  display: grid
+}
+
 .width100{
   width: 100%
 }
@@ -95,19 +99,18 @@ button {
 .text{
   @include font-sizing($body-text-size, $body-line-height);
   color: var(--main-text-color);
+  &--bio{
+    @extend .text;
+    @media (min-width: $tablet-breakpoint) {
+     padding-left: 150px;
+    }
+  }
 }
 
 .error{
   @include font-sizing($body-text-size, $body-line-height);
+  padding-top: calc($margin-padding-min / 2);
   color: red;
-}
-
-.button{
-  @include font-sizing($body-text-size, $body-line-height);
-  padding: calc($margin-padding-min / 2);
-  border-radius: $border-radius; 
-  background-color: $action-color;
-  color: $background-contrast-color;
 }
 
 .disabled {
@@ -121,4 +124,21 @@ button {
   --main-text-color: #{variables.$dm-main-text-color};
   --highlight-text-color: #{variables.$dm-main-text-color};
   --disabled-color: #{variables.$disabled-color};
+
+  .switcher__button{
+    &:hover{
+      opacity: 0.3;
+      color: $dm-main-text-color;
+      .switcher__image{
+        filter: none;
+      }
+    }
+  }
+  .button{
+    //avoid opacity changes
+    &:hover{
+      opacity: 1;
+      background-color: #b0d5fe;
+    }
+  }
 }

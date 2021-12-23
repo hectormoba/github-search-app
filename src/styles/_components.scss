@@ -1,18 +1,20 @@
 .switcher__button{
   min-width: 80px;
   padding: 0;
-  justify-content: space-between;
-  column-gap: calc($margin-padding-min / 2);
+  justify-content: space-evenly;
   background-color: var(--background-color);
-  //adapting letter centering
-  padding-top: 2px;
   letter-spacing: 1px;
+  &:hover{
+    cursor: pointer;
+    color: $highlight-text-color;
+    .switcher__image{
+      filter: saturate(100%) brightness(0);
+    }
+  }
 }
 
- 
-
 .switcher__image{
- height: 50%;
+  height: 50%;
 }
 
 .searchbar__input {
@@ -36,9 +38,21 @@
   object-fit: contain; 
 }
 
+.button{
+  @include font-sizing($body-text-size, $body-line-height);
+  padding: calc($margin-padding-min / 2);
+  border-radius: $border-radius; 
+  background-color: $action-color;
+  color: $background-contrast-color;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.3;
+  }
+}
+
 .profile__image{
   min-width: 70px;
-  max-width: 30%;
+  max-width: 100%;
   border-radius: 50%;
 }
 
@@ -59,6 +73,9 @@
   justify-content: space-evenly;
   text-align: center;
   background-color: var(--background-color);
+  @media (min-width: 649px){
+    grid-column-start: 2;
+  }
 }
 
 .stats__wrapper .text{
@@ -67,6 +84,9 @@
 
 .user-info__wrapper{
   padding: $margin-padding-min 0;
+  @media (min-width: $tablet-breakpoint){
+    grid-column-start: 2;
+  }
 }
 
 .user-info__list-item{
